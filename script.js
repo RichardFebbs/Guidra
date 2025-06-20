@@ -49,9 +49,14 @@ class Modal {
 		this.#body.innerText = value
 	}
 
+    resetNextBtn() {
+		this.#nextBtn.textContent = "Next"
+    }
+
 	toggleNextToDone() {
 		this.#nextBtn.textContent = "Done"
 	}
+
 
 	show(value = true) {
 		this.#modal.classList.toggle("show", value)
@@ -141,14 +146,13 @@ class Intro {
 		this.#modal.enableBackButton(this.currentStepIndex !== 0)
 		this.#modal.title = this.#currentStep.title
 		this.#modal.body = this.#currentStep.body
+        this.#modal.resetNextBtn()
+
 		if (this.#currentStep.element == null) {
 			this.#highlightContainer.classList.add("hide")
 			this.#positionHighlightContainer({ x: 0, y: 0, width: 0, height: 0 })
 			this.#modal.center()
 		} else {
-			if (this.currentStepIndex + 1 >= this.steps.length) {
-				this.#modal.toggleNextToDone()
-			}
 			this.#modal.center(false)
 			const rect = this.#currentStep.element.getBoundingClientRect()
 			this.#modal.position(rect)
@@ -160,6 +164,9 @@ class Intro {
 				inline: "center",
 			})
 		}
+        if (this.currentStepIndex + 1 >= this.steps.length) {
+            this.#modal.toggleNextToDone()
+        }
 	}
 
 	#createHighlightContainer() {
