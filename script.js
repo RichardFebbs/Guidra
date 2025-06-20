@@ -213,6 +213,16 @@ const intro = new Intro([
         body: "This is the body of the modal 4",
         element: document.querySelector("[data-third]"),
     },
+    {
+        title: "Test Title 5",
+        body: "This is the body of the modal 5",
+        element: document.querySelector("[data-fourth]"),
+    },
+    {
+        title: "Test Title 6",
+        body: "This is the body of the modal 6",
+        element: document.querySelector("[data-fifth]"),
+    },
 ])
 intro.start()
 
