@@ -1,5 +1,6 @@
 class Modal {
     #modal
+    #backdrop
     #closeBtn
     #title
     #body
@@ -7,6 +8,14 @@ class Modal {
     #nextBtn
 
     constructor(onBack, onNext, onClose) {
+        this.#backdrop = document.createElement("div")
+        this.#backdrop.classList.add("modal-backdrop")
+
+        // Prevent click events from closing the modal
+        this.#backdrop.addEventListener("click", (e) => {
+            e.stopPropagation()
+        })
+
         this.#modal = document.createElement("div")
         this.#modal.classList.add("modal")
 
@@ -38,6 +47,7 @@ class Modal {
         this.#nextBtn.addEventListener("click", onNext)
         footer.append(this.#nextBtn)
 
+        document.body.append(this.#backdrop)
         document.body.append(this.#modal)
     }
 
@@ -59,6 +69,7 @@ class Modal {
 
 
     show(value = true) {
+        this.#backdrop.classList.toggle("show", value)
         this.#modal.classList.toggle("show", value)
     }
 
@@ -80,6 +91,7 @@ class Modal {
 
     remove() {
         this.#modal.remove()
+        this.#backdrop.remove()
     }
 
     enableBackButton(enabled) {

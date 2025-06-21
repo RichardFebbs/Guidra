@@ -14,6 +14,20 @@
   border: none;
 }
 
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: transparent; /* transparent so box-shadow is visible */
+  z-index: 8999; /* sets the backdrop below .highlight-container and .modal */
+  pointer-events: auto; /* so it blocks clicks */
+
+}
+
+.modal-backdrop.show {
+  --scale: 1;
+  opacity: 1;
+}
+
 .modal {
   top: var(--y, 50%);
   left: var(--x, 50%);
