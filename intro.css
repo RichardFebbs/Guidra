@@ -20,7 +20,6 @@
   background: transparent; /* transparent so box-shadow is visible */
   z-index: 8999; /* sets the backdrop below .highlight-container and .modal */
   pointer-events: auto; /* so it blocks clicks */
-
 }
 
 .modal-backdrop.show {
