@@ -1,12 +1,11 @@
 .highlight-container {
   border: .1em solid black;
   border-radius: .25em;
+  box-sizing: border-box;
   box-shadow: 0 0 0 9999999px rgba(0, 0, 0, .3);
   z-index: 9000;
   position: absolute;
   transition: 250ms ease-in-out;
-  padding: .25rem;
-  transform: translate(-.25rem, -.25rem);
   pointer-events: none;
 }
 

@@ -67,7 +67,6 @@ class Modal {
         this.#nextBtn.textContent = "Done"
     }
 
-
     show(value = true) {
         this.#backdrop.classList.toggle("show", value)
         this.#modal.classList.toggle("show", value)
@@ -194,10 +193,11 @@ class Intro {
     }
 
     #positionHighlightContainer(rect) {
-        this.#highlightContainer.style.top = `${rect.top + window.scrollY}px`
-        this.#highlightContainer.style.left = `${rect.left + window.scrollX}px`
-        this.#highlightContainer.style.width = `${rect.width}px`
-        this.#highlightContainer.style.height = `${rect.height}px`
+        const padding = 4
+        this.#highlightContainer.style.top = `${rect.top + window.scrollY - padding}px`
+        this.#highlightContainer.style.left = `${rect.left + window.scrollX - padding}px`
+        this.#highlightContainer.style.width = `${rect.width + padding * 2}px`
+        this.#highlightContainer.style.height = `${rect.height + padding * 2}px`
     }
 
     #onResizeOrScroll = () => {
